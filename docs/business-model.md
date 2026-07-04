@@ -2,7 +2,7 @@
 
 ## Classification
 
-- Repository: `cloud-itonami-9311`
+- Repository: `cloud-itonami-isic-9311`
 - ISIC Rev.5: `9311`
 - Activity: operation of sports facilities -- stadiums, arenas, gyms and other athletic facility operation
 - Social impact: cultural/recreational access, data sovereignty, transparent audit

@@ -1,4 +1,4 @@
-# cloud-itonami-9311
+# cloud-itonami-isic-9311
 
 Open Business Blueprint for **ISIC Rev.5 9311**: Operation of sports facilities.
 

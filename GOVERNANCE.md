@@ -1,6 +1,6 @@
 # Governance
 
-`cloud-itonami-9311` is an OSS open-business blueprint for operation of sports facilities -- stadiums, arenas, gyms and other athletic facility operation.
+`cloud-itonami-isic-9311` is an OSS open-business blueprint for operation of sports facilities -- stadiums, arenas, gyms and other athletic facility operation.
 Governance covers both the capability layer and the operator model.
 
 ## Maintainers
