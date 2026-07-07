@@ -30,7 +30,14 @@
 
 ## Trust Controls
 
-- no facility reopens after a safety hold without human sign-off
-- a fabricated inspection/maintenance record forces a hold, not an override
-- every reopening path is auditable
+- no facility use is authorized during or after a flagged safety
+  condition without human sign-off (a venue operator)
+- a fabricated jurisdiction citation, incomplete safety evidence, an
+  occupancy count exceeding the facility's own capacity limit, or a
+  failed post-hold inspection -- each forces a hold, not an override
+- a facility's use cannot be authorized twice: a double-authorization
+  attempt is held off this actor's own facility facts alone, with no
+  upstream comparison needed
+- every intake, assessment, screening and authorization path is
+  auditable
 - emergency manual override paths remain outside LLM control
