@@ -29,10 +29,9 @@
   always a query over an immutable log -- the audit trail a patron
   trusting a venue needs, and the evidence an operator needs if an
   authorization is later disputed."
-  (:require #?(:clj  [clojure.edn :as edn]
-               :cljs [cljs.reader :as edn])
-            [facility.registry :as registry]
-            [langchain.db :as d]))
+  (:require [facility.registry :as registry]
+            [langchain.db :as d]
+            [langchain-store.core :as ls]))
 
 (defprotocol Store
   (facility [s id])
@@ -143,8 +142,11 @@
    :authorization/seq           {:db/unique :db.unique/identity}
    :sequence/jurisdiction        {:db/unique :db.unique/identity}})
 
-(defn- enc [v] (pr-str v))
-(defn- dec* [s] (when s (edn/read-string s)))
+;; EDN-blob codec -- delegates to kotoba-lang/langchain-store's shared
+;; implementation (ADR-2607141600) instead of hand-rolling the
+;; `pr-str`/`edn/read-string` two-liner ~190 sibling stores duplicated.
+(def ^:private enc ls/enc)
+(def ^:private dec* ls/dec*)
 
 (defn- facility->tx [{:keys [id facility-name current-occupancy maximum-capacity
                              inspection-passed? authorized? jurisdiction status authorization-number]}]
