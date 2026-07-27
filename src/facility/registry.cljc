@@ -57,6 +57,17 @@
   (and (number? current-occupancy) (number? maximum-capacity)
        (> current-occupancy maximum-capacity)))
 
+(defn occupancy-exceeds-capacity-checkable?
+  "Are both sides of `occupancy-exceeds-capacity?` actually recorded?
+
+  That predicate answers only `over` / `not over`, and its
+  `(and (number? ...) (number? ...) ...)` guard made every un-recorded
+  case fall through as `not over` -- an entity missing either figure
+  passed the limit check silently. Callers must ask this first:
+  un-checkable is not within limits."
+  [{:keys [current-occupancy maximum-capacity]}]
+  (boolean (and (number? current-occupancy) (number? maximum-capacity))))
+
 (defn register-facility-use-authorization
   "Validate + construct the FACILITY-USE-AUTHORIZATION registration
   DRAFT -- the venue operator's own legal act of authorizing real
