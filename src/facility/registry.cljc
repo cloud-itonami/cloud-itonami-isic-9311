@@ -28,7 +28,7 @@
   venue operator would keep, not the act of authorizing facility use
   itself (that is `facility.operation`'s `:facility/authorize-use`,
   always human-gated -- see README `Actuation`)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- unsigned-certificate
   "Every certificate this actor produces is UNSIGNED -- signature is the
@@ -84,7 +84,7 @@
     (throw (ex-info "facility-use-authorization: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "facility-use-authorization: sequence must be >= 0" {})))
-  (let [authorization-number (str (str/upper-case jurisdiction) "-AUT-" (zero-pad sequence 6))
+  (let [authorization-number (str (str/upper jurisdiction) "-AUT-" (zero-pad sequence 6))
         record {"record_id" authorization-number
                 "kind" "facility-use-authorization-draft"
                 "facility_id" facility-id
