@@ -170,14 +170,14 @@ capability lib to reference at all.
 
 | File | Role |
 |---|---|
-| `src/facility/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + facility-use-authorization history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded facility, and the double-authorization guard checks a dedicated `:authorized?` boolean rather than a `:status` value |
-| `src/facility/registry.cljc` | Facility-use-authorization draft records, plus `occupancy-exceeds-capacity?` -- generalizes this fleet's MAXIMUM-ceiling family to its FIRST NON-TEMPORAL ground truth (occupancy count vs. capacity limit), reusing `parksafety.registry/operators-sufficient?`'s two-field-on-one-entity comparison shape |
-| `src/facility/facts.cljc` | Per-jurisdiction assembly-venue/occupancy-safety catalog with an official spec-basis citation per entry, honest coverage reporting |
-| `src/facility/facilityopsllm.cljc` | **FacilityOps-LLM Advisor** -- `mock-advisor` ‖ `llm-advisor`; intake/assessment/inspection-screening/facility-use-authorization proposals |
-| `src/facility/governor.cljc` | **Facility Safety Governor** -- 4 HARD checks (spec-basis · evidence-incomplete · occupancy-exceeds-capacity, pure ground-truth two-field recompute · inspection-not-passed, unconditional evaluation, the SEVENTEENTH grounding of this discipline and SECOND specifically for the post-hold-inspection concept after `parksafety`) + already-authorized guard + 1 soft (confidence/actuation gate) |
-| `src/facility/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted assess → supervised (authorization always human; facility intake is the ONLY auto-eligible op, no direct capital risk) |
-| `src/facility/operation.cljc` | **OperationActor** -- langgraph-clj StateGraph |
-| `src/facility/sim.cljc` | demo driver |
+| `src/facility/store.kotoba` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + facility-use-authorization history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded facility, and the double-authorization guard checks a dedicated `:authorized?` boolean rather than a `:status` value |
+| `src/facility/registry.kotoba` | Facility-use-authorization draft records, plus `occupancy-exceeds-capacity?` -- generalizes this fleet's MAXIMUM-ceiling family to its FIRST NON-TEMPORAL ground truth (occupancy count vs. capacity limit), reusing `parksafety.registry/operators-sufficient?`'s two-field-on-one-entity comparison shape |
+| `src/facility/facts.kotoba` | Per-jurisdiction assembly-venue/occupancy-safety catalog with an official spec-basis citation per entry, honest coverage reporting |
+| `src/facility/facilityopsllm.kotoba` | **FacilityOps-LLM Advisor** -- `mock-advisor` ‖ `llm-advisor`; intake/assessment/inspection-screening/facility-use-authorization proposals |
+| `src/facility/governor.kotoba` | **Facility Safety Governor** -- 4 HARD checks (spec-basis · evidence-incomplete · occupancy-exceeds-capacity, pure ground-truth two-field recompute · inspection-not-passed, unconditional evaluation, the SEVENTEENTH grounding of this discipline and SECOND specifically for the post-hold-inspection concept after `parksafety`) + already-authorized guard + 1 soft (confidence/actuation gate) |
+| `src/facility/phase.kotoba` | **Phase 0→3** -- read-only → assisted intake → assisted assess → supervised (authorization always human; facility intake is the ONLY auto-eligible op, no direct capital risk) |
+| `src/facility/operation.kotoba` | **OperationActor** -- langgraph-clj StateGraph |
+| `src/facility/sim.kotoba` | demo driver |
 | `test/facility/*_test.clj` | governor contract · phase invariants · store parity · registry conformance · facts coverage |
 
 ## Business-process coverage (honest)
