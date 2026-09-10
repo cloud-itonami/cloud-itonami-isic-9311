@@ -155,7 +155,7 @@ stack only, per the blueprint's own explicit statement.
   ceiling family, and a further application of the two-field-on-one-
   entity comparison shape `parksafety` established.
 - (+) The actuation invariant (governor + phase, two layers) is
-  regression-tested by `test/facility/phase_test.clj`'s `facility-
+  regression-tested by `test/facility/phase_test.kotoba`'s `facility-
   authorize-use-never-auto-at-any-phase`.
 - (+) `MemStore` ‖ `DatomicStore` parity is proven by `test/facility/
   store_contract_test.clj`, the same `:db-api`-driven swap pattern
