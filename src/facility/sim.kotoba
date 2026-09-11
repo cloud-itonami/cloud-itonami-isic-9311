@@ -1,5 +1,5 @@
 (ns facility.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean facility through
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean facility through
   intake -> jurisdiction assessment -> inspection screening ->
   facility-use-authorization proposal (always escalates) -> human
   approval -> commit, then shows four HARD holds (a jurisdiction with
